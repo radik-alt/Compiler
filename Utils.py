@@ -1,3 +1,5 @@
+import LexTypes
+
 lexTypes = [
     "ParsingError",
     "DataType",
@@ -8,24 +10,23 @@ lexTypes = [
     "Operation"
 ]
 
-keywords = ["for"]
+keywords = ["for", "range", "in"]
 operations = [">", "<", "=", "+", ':', '*', '/', '-']
 increment = ["<=", ">=", "!=", "==", "+=", "-=", "*=", "/=", "%="]
-delimeter = [":", "(", ")"]
+delimeter = [":", "(", ")", "   ", ":"]
 
 
 def getLexType(Type: str):
-    print(f"{Type} --- Type")
-    if Type in operations:
-        return lexTypes[6]
+    if Type in operations or Type in increment:
+        return LexTypes.LexTypes.Operation
     elif Type in keywords:
-        return lexTypes[4]
+        return LexTypes.LexTypes.Identifier
     elif Type in delimeter:
-        return lexTypes[3]
+        return LexTypes.LexTypes.Delimeter
     elif Type.isdigit():
-        return lexTypes[5]
+        return LexTypes.LexTypes.Constant
     else:
-        return lexTypes[2]
+        return LexTypes.LexTypes.Variable
 
 
 operators = [
