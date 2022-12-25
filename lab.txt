@@ -1,0 +1,5 @@
+counter = 0
+n = 5 + 1
+
+for i in range(n):
+    counter += 1
